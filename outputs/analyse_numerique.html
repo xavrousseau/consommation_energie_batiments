@@ -1,0 +1,1357 @@
+
+<html>
+<head>
+    <title>Analyse des Variables Numériques</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f8f9fa; margin: 20px; font-size: 14px; }
+        .container { max-width: 1200px; margin: auto; padding: 20px; }
+        h1, h2 { text-align: center; color: #333; }
+        h2 { border-bottom: 2px solid #007BFF; padding-bottom: 5px; font-size: 16px; }
+        .target { color: #DC3545; font-weight: bold; }
+        .grid { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; }
+        .image { width: 30%; height: auto; }
+        img { width: 100%; height: auto; border-radius: 5px; }
+        table { width: 100%; border-collapse: collapse; font-size: 12px; }
+        th, td { border: 1px solid #ddd; padding: 6px; text-align: center; }
+        th { background-color: #007BFF; color: white; }
+        .categorical-grid { display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: center; }
+        .categorical-grid .image { width: 45%; }
+        .categorical-grid table { width: 50%; }
+    </style>
+</head>
+<body>
+    <div class='container'>
+        <h1>📊 Analyse des Variables Numériques</h1>
+<h2 class='target'>🎯 Variables Cibles</h2>
+    <h2 class='target'>🔋 Consommation énergétique du site</h2>
+    <div class='grid'>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/site_energy_use_histogram.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/site_energy_use_boxplot.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/site_energy_use_kde.png'></div>
+        <div class='image'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>index</th>
+      <th>site_energy_use</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>1.666000e+03</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>8.437933e+06</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>3.024380e+07</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>1.229291e+06</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>2.554947e+06</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>6.913348e+06</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>8.739237e+08</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+    
+    <h2 class='target'>🌍 Émissions totales de CO2</h2>
+    <div class='grid'>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/ghg_emissions_total_histogram.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/ghg_emissions_total_boxplot.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/ghg_emissions_total_kde.png'></div>
+        <div class='image'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>index</th>
+      <th>ghg_emissions_total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>1666.000000</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>184.973301</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>751.976001</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>-0.800000</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>19.967500</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>49.580000</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>142.382500</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>16870.980000</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+    <h2 class=''>📌 Variables Explicatives</h2>
+    <h2 class=''>🏗 Année de construction</h2>
+    <div class='grid'>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/year_built_histogram.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/year_built_boxplot.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/year_built_kde.png'></div>
+        <div class='image'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>index</th>
+      <th>year_built</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>1668.000000</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>1961.913669</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>32.741755</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>1900.000000</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>1930.000000</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>1965.000000</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>1989.000000</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>2015.000000</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+    
+    <h2 class=''>🏢 Nombre de bâtiments</h2>
+    <div class='grid'>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/num_buildings_histogram.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/num_buildings_boxplot.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/num_buildings_kde.png'></div>
+        <div class='image'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>index</th>
+      <th>num_buildings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>1666.000000</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>1.168667</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>2.931409</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>111.000000</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+    
+    <h2 class=''>📊 Nombre d'étages</h2>
+    <div class='grid'>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/num_floors_histogram.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/num_floors_boxplot.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/num_floors_kde.png'></div>
+        <div class='image'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>index</th>
+      <th>num_floors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>1668.000000</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>4.121103</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>6.563407</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>99.000000</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+    
+    <h2 class=''>📏 Surface totale (sqft)</h2>
+    <div class='grid'>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/gfa_total_histogram.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/gfa_total_boxplot.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/gfa_total_kde.png'></div>
+        <div class='image'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>index</th>
+      <th>gfa_total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>1.668000e+03</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>1.188427e+05</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>2.973622e+05</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>1.128500e+04</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>2.947775e+04</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>4.928950e+04</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>1.053250e+05</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>9.320156e+06</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+    
+    <h2 class=''>🚗 Surface du parking (sqft)</h2>
+    <div class='grid'>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/gfa_parking_histogram.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/gfa_parking_boxplot.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/gfa_parking_kde.png'></div>
+        <div class='image'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>index</th>
+      <th>gfa_parking</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>1668.000000</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>12897.979017</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>42274.511185</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>512608.000000</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+    
+    <h2 class=''>🏠 Surface des bâtiments (sqft)</h2>
+    <div class='grid'>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/gfa_buildings_histogram.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/gfa_buildings_boxplot.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/gfa_buildings_kde.png'></div>
+        <div class='image'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>index</th>
+      <th>gfa_buildings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>1.668000e+03</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>1.059447e+05</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>2.842116e+05</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>3.636000e+03</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>2.847525e+04</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>4.739150e+04</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>9.475975e+04</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>9.320156e+06</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+    
+    <h2 class=''>🏢 Surface du plus grand usage</h2>
+    <div class='grid'>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/largest_use_gfa_histogram.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/largest_use_gfa_boxplot.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/largest_use_gfa_kde.png'></div>
+        <div class='image'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>index</th>
+      <th>largest_use_gfa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>1.662000e+03</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>9.876469e+04</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>2.767111e+05</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>5.656000e+03</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>2.552750e+04</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>4.377050e+04</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>9.198375e+04</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>9.320156e+06</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+    
+    <h2 class=''>⚡ Intensité de l'utilisation de l'énergie (EUI)</h2>
+    <div class='grid'>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/site_eui_histogram.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/site_eui_boxplot.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/site_eui_kde.png'></div>
+        <div class='image'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>index</th>
+      <th>site_eui</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>1665.000000</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>72.158799</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>74.048129</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>33.700001</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>51.900002</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>81.699997</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>834.400024</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+    
+    <h2 class=''>🌤 EUI normalisé par la météo</h2>
+    <div class='grid'>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/site_eui_wn_histogram.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/site_eui_wn_boxplot.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/site_eui_wn_kde.png'></div>
+        <div class='image'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>index</th>
+      <th>site_eui_wn</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>1665.000000</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>74.568529</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>75.028403</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>35.400002</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>53.900002</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>85.199997</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>834.400024</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+    
+    <h2 class=''>🔌 Source EUI</h2>
+    <div class='grid'>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/source_eui_histogram.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/source_eui_boxplot.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/source_eui_kde.png'></div>
+        <div class='image'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>index</th>
+      <th>source_eui</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>1666.000000</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>175.829892</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>185.932121</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>76.450001</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>130.949997</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>203.950001</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>2620.000000</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+    
+    <h2 class=''>⛅ Source EUI normalisé</h2>
+    <div class='grid'>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/source_eui_wn_histogram.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/source_eui_wn_boxplot.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/source_eui_wn_kde.png'></div>
+        <div class='image'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>index</th>
+      <th>source_eui_wn</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>1666.000000</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>178.090876</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>185.918749</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>-2.100000</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>79.325003</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>134.150002</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>205.700001</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>2620.000000</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+    
+    <h2 class=''>💨 Consommation de vapeur (kBtu)</h2>
+    <div class='grid'>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/steam_use_histogram.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/steam_use_boxplot.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/steam_use_kde.png'></div>
+        <div class='image'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>index</th>
+      <th>steam_use</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>1.666000e+03</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>5.125726e+05</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>5.513944e+06</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>1.349435e+08</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+    
+    <h2 class=''>⚡ Consommation électrique (kBtu)</h2>
+    <div class='grid'>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/electricity_kbtu_histogram.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/electricity_kbtu_boxplot.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/electricity_kbtu_kde.png'></div>
+        <div class='image'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>index</th>
+      <th>electricity_kbtu</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>1.666000e+03</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>5.843493e+06</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>2.079673e+07</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>-1.154170e+05</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>7.213255e+05</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>1.611881e+06</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>4.847589e+06</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>6.570744e+08</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+    
+    <h2 class=''>🔥 Consommation de gaz naturel (kBtu)</h2>
+    <div class='grid'>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/natural_gas_kbtu_histogram.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/natural_gas_kbtu_boxplot.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/natural_gas_kbtu_kde.png'></div>
+        <div class='image'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>index</th>
+      <th>natural_gas_kbtu</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>1.666000e+03</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>1.970845e+06</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>9.370814e+06</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>4.982630e+05</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>1.520000e+06</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>2.979090e+08</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+    
+    <h2 class=''>🌱 Intensité des émissions de CO2</h2>
+    <div class='grid'>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/ghg_emissions_intensity_histogram.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/ghg_emissions_intensity_boxplot.png'></div>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs/ghg_emissions_intensity_kde.png'></div>
+        <div class='image'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>index</th>
+      <th>ghg_emissions_intensity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>1666.000000</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>1.607845</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>2.336882</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>-0.020000</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>0.350000</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>0.880000</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>1.890000</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>34.090000</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+    </div></body></html><h1>📑 Analyse des Variables Catégorielles</h1>
+    <h2>building_type</h2>
+    <div class='categorical-grid'>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs\building_type_barplot.png'></div>
+        <div class='image'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>building_type</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>NonResidential</td>
+      <td>1460</td>
+    </tr>
+    <tr>
+      <td>SPS-District K-12</td>
+      <td>98</td>
+    </tr>
+    <tr>
+      <td>Nonresidential COS</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <td>Campus</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <td>Nonresidential WA</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+    
+    <h2>property_type</h2>
+    <div class='categorical-grid'>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs\property_type_barplot.png'></div>
+        <div class='image'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>property_type</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Small- and Mid-Sized Office</td>
+      <td>292</td>
+    </tr>
+    <tr>
+      <td>Other</td>
+      <td>250</td>
+    </tr>
+    <tr>
+      <td>Warehouse</td>
+      <td>187</td>
+    </tr>
+    <tr>
+      <td>Large Office</td>
+      <td>173</td>
+    </tr>
+    <tr>
+      <td>K-12 School</td>
+      <td>139</td>
+    </tr>
+    <tr>
+      <td>Mixed Use Property</td>
+      <td>114</td>
+    </tr>
+    <tr>
+      <td>Retail Store</td>
+      <td>91</td>
+    </tr>
+    <tr>
+      <td>Hotel</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <td>Worship Facility</td>
+      <td>71</td>
+    </tr>
+    <tr>
+      <td>Distribution Center</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <td>Supermarket / Grocery Store</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>Medical Office</td>
+      <td>39</td>
+    </tr>
+    <tr>
+      <td>Self-Storage Facility</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <td>University</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <td>Residence Hall</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <td>Senior Care Community</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>Restaurant</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>Refrigerated Warehouse</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>Hospital</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>Laboratory</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>Low-Rise Multifamily</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Office</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+    
+    <h2>neighborhood</h2>
+    <div class='categorical-grid'>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs\neighborhood_barplot.png'></div>
+        <div class='image'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>neighborhood</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DOWNTOWN</td>
+      <td>361</td>
+    </tr>
+    <tr>
+      <td>GREATER DUWAMISH</td>
+      <td>346</td>
+    </tr>
+    <tr>
+      <td>MAGNOLIA / QUEEN ANNE</td>
+      <td>151</td>
+    </tr>
+    <tr>
+      <td>LAKE UNION</td>
+      <td>148</td>
+    </tr>
+    <tr>
+      <td>NORTHEAST</td>
+      <td>128</td>
+    </tr>
+    <tr>
+      <td>EAST</td>
+      <td>121</td>
+    </tr>
+    <tr>
+      <td>NORTHWEST</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <td>BALLARD</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td>NORTH</td>
+      <td>58</td>
+    </tr>
+    <tr>
+      <td>CENTRAL</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <td>SOUTHEAST</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <td>DELRIDGE</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <td>SOUTHWEST</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <td>North</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>Ballard</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>Central</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Northwest</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Delridge</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>DELRIDGE NEIGHBORHOODS</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+    
+    <h2>largest_use_type</h2>
+    <div class='categorical-grid'>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs\largest_use_type_barplot.png'></div>
+        <div class='image'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>largest_use_type</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Office</td>
+      <td>497</td>
+    </tr>
+    <tr>
+      <td>Non-Refrigerated Warehouse</td>
+      <td>199</td>
+    </tr>
+    <tr>
+      <td>K-12 School</td>
+      <td>139</td>
+    </tr>
+    <tr>
+      <td>Retail Store</td>
+      <td>99</td>
+    </tr>
+    <tr>
+      <td>Other</td>
+      <td>98</td>
+    </tr>
+    <tr>
+      <td>Hotel</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <td>Worship Facility</td>
+      <td>71</td>
+    </tr>
+    <tr>
+      <td>Distribution Center</td>
+      <td>54</td>
+    </tr>
+    <tr>
+      <td>Medical Office</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <td>Supermarket/Grocery Store</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <td>Other - Recreation</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <td>Parking</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>Self-Storage Facility</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <td>College/University</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <td>Residence Hall/Dormitory</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <td>Other - Entertainment/Public Assembly</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <td>Senior Care Community</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>Laboratory</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>Restaurant</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>Refrigerated Warehouse</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>Multifamily Housing</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>Social/Meeting Hall</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>Hospital (General Medical & Surgical)</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>Manufacturing/Industrial Plant</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>Strip Mall</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>Repair Services (Vehicle, Shoe, Locksmith, etc)</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>Fitness Center/Health Club/Gym</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Other - Services</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Museum</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Automobile Dealership</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Other - Lodging/Residential</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Library</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Urgent Care/Clinic/Other Outpatient</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Bank Branch</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Other/Specialty Hospital</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Other - Mall</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Other - Education</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Financial Office</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Prison/Incarceration</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Performing Arts</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Data Center</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Other - Public Services</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Other - Utility</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Adult Education</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Pre-school/Daycare</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Lifestyle Center</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Other - Restaurant/Bar</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Courthouse</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Police Station</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Convention Center</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Wholesale Club/Supercenter</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Fire Station</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Residential Care Facility</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Food Service</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Personal Services (Health/Beauty, Dry Cleaning, etc)</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Movie Theater</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+    
+    <h2>compliance_status</h2>
+    <div class='categorical-grid'>
+        <div class='image'><img src='f:\1.Boulot\02_Openclassrooms\Github\consommation_energie_batiments\outputs\compliance_status_barplot.png'></div>
+        <div class='image'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>compliance_status</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Compliant</td>
+      <td>1548</td>
+    </tr>
+    <tr>
+      <td>Error - Correct Default Data</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>Non-Compliant</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td>Missing Data</td>
+      <td>14</td>
+    </tr>
+  </tbody>
+</table></div>
+    </div>
+    </div></body></html>
