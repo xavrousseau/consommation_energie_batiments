@@ -1,0 +1,20 @@
+service: "src.service:svc"
+description: "API pour prédire la consommation d'énergie et les émissions de CO₂ des bâtiments."
+
+labels:
+  owner: "user"
+  project: "consommation_energie_batiments"
+
+include:
+  - "src/service.py"
+  - "requirements.txt"
+  - "models/"
+  - "data/processed/dataset_cleaned.csv"
+
+docker:
+  base_image: "python:3.9-slim"
+  setup_script: "pip install --no-cache-dir -r ./requirements.txt"
+
+models:
+  - site_energy_use_model:latest
+  - ghg_emissions_model:latest

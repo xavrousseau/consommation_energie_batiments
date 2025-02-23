@@ -3,3 +3,5 @@ old/
 .env
 docs/
 docker/
+logs/analyse.log
+logs/analyse.log
