@@ -1,0 +1,116 @@
+2025-02-24 14:47:01.850 | INFO     | __main__:<module>:26 - 🚀 Démarrage du script de préparation des données.
+2025-02-24 14:47:01.851 | INFO     | __main__:<module>:143 - 🔎 Chargement du fichier brut depuis F:\1.Boulot\03_Github\consommation_energie_batiments\data\raw\2016_Building_Energy_Benchmarking.csv.
+2025-02-24 14:47:01.869 | INFO     | __main__:<module>:145 - ✅ Données brutes chargées avec succès.
+2025-02-24 14:47:01.870 | INFO     | __main__:preprocess_data:46 - 🔧 Début du prétraitement des données.
+2025-02-24 14:47:01.871 | INFO     | __main__:preprocess_data:63 - ✅ Colonnes renommées : ['electricity_use', 'natural_gas_use', 'floors', 'total_gfa', 'property_type', 'year_built', 'site_eui', 'ghg_emissions_total', 'site_energy_use', 'neighborhood', 'district']
+2025-02-24 14:52:54.538 | INFO     | __main__:<module>:26 - 🚀 Démarrage du script de préparation des données.
+2025-02-24 14:52:54.539 | INFO     | __main__:<module>:148 - 🔎 Chargement du fichier brut depuis F:\1.Boulot\03_Github\consommation_energie_batiments\data\raw\2016_Building_Energy_Benchmarking.csv.
+2025-02-24 14:52:54.557 | INFO     | __main__:<module>:155 - ✅ Données brutes chargées avec succès.
+2025-02-24 14:52:54.557 | INFO     | __main__:preprocess_data:45 - 🔧 Début du prétraitement des données.
+2025-02-24 14:52:54.558 | INFO     | __main__:preprocess_data:68 - ✅ Colonnes renommées : ['electricity_use', 'natural_gas_use', 'floors', 'total_gfa', 'property_type', 'year_built', 'site_eui', 'ghg_emissions_total', 'site_energy_use', 'neighborhood', 'district', 'property_use_list']
+2025-02-24 14:52:54.562 | INFO     | __main__:preprocess_data:76 - ✅ Gestion des valeurs manquantes complétée.
+2025-02-24 14:52:54.566 | ERROR    | __main__:<module>:167 - ❌ Erreur lors du prétraitement des données : Length of values (3297) does not match length of index (3376)
+2025-02-24 15:02:22.182 | INFO     | __main__:<module>:26 - 🚀 Démarrage du script de préparation des données.
+2025-02-24 15:02:22.183 | INFO     | __main__:<module>:154 - 🔎 Chargement du fichier brut depuis F:\1.Boulot\03_Github\consommation_energie_batiments\data\raw\2016_Building_Energy_Benchmarking.csv.
+2025-02-24 15:02:22.200 | INFO     | __main__:<module>:161 - ✅ Données brutes chargées avec succès.
+2025-02-24 15:02:22.201 | INFO     | __main__:preprocess_data:45 - 🔧 Début du prétraitement des données.
+2025-02-24 15:02:22.201 | INFO     | __main__:preprocess_data:68 - ✅ Colonnes renommées : ['electricity_use', 'natural_gas_use', 'floors', 'total_gfa', 'property_type', 'year_built', 'site_eui', 'ghg_emissions_total', 'site_energy_use', 'neighborhood', 'district', 'property_use_list']
+2025-02-24 15:02:22.205 | INFO     | __main__:preprocess_data:76 - ✅ Gestion des valeurs manquantes complétée.
+2025-02-24 15:02:22.208 | INFO     | __main__:preprocess_data:84 - ✅ Outliers filtrés sur 'site_eui' : 79 lignes supprimées.
+2025-02-24 15:02:22.211 | INFO     | __main__:preprocess_data:84 - ✅ Outliers filtrés sur 'site_energy_use' : 14 lignes supprimées.
+2025-02-24 15:02:22.212 | INFO     | __main__:preprocess_data:90 - ✅ Winsorisation des variables numériques terminée.
+2025-02-24 15:02:22.214 | INFO     | __main__:preprocess_data:94 - ✅ Variable dérivée 'building_density' créée.
+2025-02-24 15:02:22.214 | INFO     | __main__:preprocess_data:100 - ✅ Transformation logarithmique appliquée à 'site_eui'.
+2025-02-24 15:02:22.215 | INFO     | __main__:preprocess_data:100 - ✅ Transformation logarithmique appliquée à 'site_energy_use'.
+2025-02-24 15:02:22.216 | INFO     | __main__:preprocess_data:107 - ✅ Variables dérivées créées : f_has_natural_gas, electricity_ratio, gas_ratio, f_is_large_building.
+2025-02-24 15:02:22.222 | INFO     | __main__:preprocess_data:111 - ✅ Encodage One-Hot terminé pour 'neighborhood', 'district' et 'property_use_list'.
+2025-02-24 15:02:22.224 | INFO     | __main__:preprocess_data:116 - ✅ Recodage catégoriel terminé pour 'year_built_cat' et 'floors_cat'.
+2025-02-24 15:02:22.226 | INFO     | __main__:preprocess_data:123 - ✅ Scaler existant chargé.
+2025-02-24 15:02:22.228 | ERROR    | __main__:<module>:173 - ❌ Erreur lors du prétraitement des données : The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- Comments
+- DataYear
+- ENERGYSTARScore
+- Electricity(kBtu)
+- GHGEmissionsIntensity
+- ...
+
+2025-02-24 15:13:32.012 | INFO     | __main__:<module>:26 - 🚀 Démarrage du script de préparation des données.
+2025-02-24 15:13:32.012 | INFO     | __main__:<module>:154 - 🔎 Chargement du fichier brut depuis F:\1.Boulot\03_Github\consommation_energie_batiments\data\raw\2016_Building_Energy_Benchmarking.csv.
+2025-02-24 15:13:32.028 | INFO     | __main__:<module>:161 - ✅ Données brutes chargées avec succès.
+2025-02-24 15:13:32.029 | INFO     | __main__:preprocess_data:45 - 🔧 Début du prétraitement des données.
+2025-02-24 15:13:32.029 | INFO     | __main__:preprocess_data:68 - ✅ Colonnes renommées : ['electricity_use', 'natural_gas_use', 'floors', 'total_gfa', 'property_type', 'year_built', 'site_eui', 'ghg_emissions_total', 'site_energy_use', 'neighborhood', 'district', 'property_use_list']
+2025-02-24 15:13:32.033 | INFO     | __main__:preprocess_data:76 - ✅ Gestion des valeurs manquantes complétée.
+2025-02-24 15:13:32.037 | INFO     | __main__:preprocess_data:84 - ✅ Outliers filtrés sur 'site_eui' : 79 lignes supprimées.
+2025-02-24 15:13:32.039 | INFO     | __main__:preprocess_data:84 - ✅ Outliers filtrés sur 'site_energy_use' : 14 lignes supprimées.
+2025-02-24 15:13:32.040 | INFO     | __main__:preprocess_data:90 - ✅ Winsorisation des variables numériques terminée.
+2025-02-24 15:13:32.041 | INFO     | __main__:preprocess_data:94 - ✅ Variable dérivée 'building_density' créée.
+2025-02-24 15:13:32.042 | INFO     | __main__:preprocess_data:100 - ✅ Transformation logarithmique appliquée à 'site_eui'.
+2025-02-24 15:13:32.042 | INFO     | __main__:preprocess_data:100 - ✅ Transformation logarithmique appliquée à 'site_energy_use'.
+2025-02-24 15:13:32.044 | INFO     | __main__:preprocess_data:107 - ✅ Variables dérivées créées : f_has_natural_gas, electricity_ratio, gas_ratio, f_is_large_building.
+2025-02-24 15:13:32.050 | INFO     | __main__:preprocess_data:111 - ✅ Encodage One-Hot terminé pour 'neighborhood', 'district' et 'property_use_list'.
+2025-02-24 15:13:32.052 | INFO     | __main__:preprocess_data:116 - ✅ Recodage catégoriel terminé pour 'year_built_cat' et 'floors_cat'.
+2025-02-24 15:13:32.053 | INFO     | __main__:preprocess_data:123 - ✅ Scaler existant chargé.
+2025-02-24 15:13:32.054 | ERROR    | __main__:<module>:173 - ❌ Erreur lors du prétraitement des données : The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- Comments
+- DataYear
+- ENERGYSTARScore
+- Electricity(kBtu)
+- GHGEmissionsIntensity
+- ...
+
+2025-02-24 15:22:21.229 | INFO     | __main__:<module>:26 - 🚀 Démarrage du script de préparation des données.
+2025-02-24 15:22:21.230 | INFO     | __main__:<module>:161 - 🔎 Chargement du fichier brut depuis F:\1.Boulot\03_Github\consommation_energie_batiments\data\raw\2016_Building_Energy_Benchmarking.csv.
+2025-02-24 15:22:21.247 | INFO     | __main__:<module>:168 - ✅ Données brutes chargées avec succès.
+2025-02-24 15:22:21.247 | INFO     | __main__:preprocess_data:45 - 🔧 Début du prétraitement des données.
+2025-02-24 15:22:21.248 | INFO     | __main__:preprocess_data:68 - ✅ Colonnes renommées : ['electricity_use', 'natural_gas_use', 'floors', 'total_gfa', 'property_type', 'year_built', 'site_eui', 'ghg_emissions_total', 'site_energy_use', 'neighborhood', 'district', 'property_use_list']
+2025-02-24 15:22:21.251 | INFO     | __main__:preprocess_data:73 - ✅ Colonnes conservées pour le traitement : ['electricity_use', 'natural_gas_use', 'floors', 'total_gfa', 'property_type', 'year_built', 'site_eui', 'ghg_emissions_total', 'site_energy_use', 'neighborhood', 'district', 'property_use_list']
+2025-02-24 15:22:21.259 | INFO     | __main__:preprocess_data:81 - ✅ Gestion des valeurs manquantes complétée.
+2025-02-24 15:22:21.262 | INFO     | __main__:preprocess_data:89 - ✅ Outliers filtrés sur 'site_eui' : 79 lignes supprimées.
+2025-02-24 15:22:21.263 | INFO     | __main__:preprocess_data:89 - ✅ Outliers filtrés sur 'site_energy_use' : 14 lignes supprimées.
+2025-02-24 15:22:21.265 | INFO     | __main__:preprocess_data:95 - ✅ Winsorisation des variables numériques terminée.
+2025-02-24 15:22:21.266 | INFO     | __main__:preprocess_data:99 - ✅ Variable dérivée 'building_density' créée.
+2025-02-24 15:22:21.267 | INFO     | __main__:preprocess_data:105 - ✅ Transformation logarithmique appliquée à 'site_eui'.
+2025-02-24 15:22:21.267 | INFO     | __main__:preprocess_data:105 - ✅ Transformation logarithmique appliquée à 'site_energy_use'.
+2025-02-24 15:22:21.269 | INFO     | __main__:preprocess_data:112 - ✅ Variables dérivées créées : f_has_natural_gas, electricity_ratio, gas_ratio, f_is_large_building.
+2025-02-24 15:22:21.273 | INFO     | __main__:preprocess_data:116 - ✅ Encodage One-Hot terminé pour 'neighborhood', 'district' et 'property_use_list'.
+2025-02-24 15:22:21.276 | INFO     | __main__:preprocess_data:121 - ✅ Recodage catégoriel terminé pour 'year_built_cat' et 'floors_cat'.
+2025-02-24 15:22:21.278 | INFO     | __main__:preprocess_data:129 - ✅ Colonnes attendues par le scaler : ['site_eui', 'floors', 'building_density', 'electricity_ratio', 'gas_ratio', 'site_energy_use']
+2025-02-24 15:22:21.280 | ERROR    | __main__:<module>:180 - ❌ Erreur lors du prétraitement des données : "['electricity_use', 'natural_gas_use', 'total_gfa', 'year_built', 'ghg_emissions_total', 'f_has_natural_gas', 'f_is_large_building'] not in index"
+2025-02-24 15:27:37.289 | INFO     | __main__:<module>:26 - 🚀 Démarrage du script de préparation des données.
+2025-02-24 15:27:37.290 | INFO     | __main__:<module>:161 - 🔎 Chargement du fichier brut depuis F:\1.Boulot\03_Github\consommation_energie_batiments\data\raw\2016_Building_Energy_Benchmarking.csv.
+2025-02-24 15:27:37.307 | INFO     | __main__:<module>:168 - ✅ Données brutes chargées avec succès.
+2025-02-24 15:27:37.308 | INFO     | __main__:preprocess_data:45 - 🔧 Début du prétraitement des données.
+2025-02-24 15:27:37.311 | INFO     | __main__:preprocess_data:68 - ✅ Colonnes renommées : ['electricity_use', 'natural_gas_use', 'floors', 'total_gfa', 'property_type', 'year_built', 'site_eui', 'ghg_emissions_total', 'site_energy_use', 'neighborhood', 'district', 'property_use_list']
+2025-02-24 15:27:37.313 | INFO     | __main__:preprocess_data:73 - ✅ Colonnes conservées pour le traitement : ['electricity_use', 'natural_gas_use', 'floors', 'total_gfa', 'property_type', 'year_built', 'site_eui', 'ghg_emissions_total', 'site_energy_use', 'neighborhood', 'district', 'property_use_list']
+2025-02-24 15:27:37.317 | INFO     | __main__:preprocess_data:81 - ✅ Gestion des valeurs manquantes complétée.
+2025-02-24 15:27:37.319 | INFO     | __main__:preprocess_data:89 - ✅ Outliers filtrés sur 'site_eui' : 79 lignes supprimées.
+2025-02-24 15:27:37.320 | INFO     | __main__:preprocess_data:89 - ✅ Outliers filtrés sur 'site_energy_use' : 14 lignes supprimées.
+2025-02-24 15:27:37.322 | INFO     | __main__:preprocess_data:95 - ✅ Winsorisation des variables numériques terminée.
+2025-02-24 15:27:37.323 | INFO     | __main__:preprocess_data:99 - ✅ Variable dérivée 'building_density' créée.
+2025-02-24 15:27:37.323 | INFO     | __main__:preprocess_data:105 - ✅ Transformation logarithmique appliquée à 'site_eui'.
+2025-02-24 15:27:37.324 | INFO     | __main__:preprocess_data:105 - ✅ Transformation logarithmique appliquée à 'site_energy_use'.
+2025-02-24 15:27:37.326 | INFO     | __main__:preprocess_data:112 - ✅ Variables dérivées créées : f_has_natural_gas, electricity_ratio, gas_ratio, f_is_large_building.
+2025-02-24 15:27:37.329 | INFO     | __main__:preprocess_data:116 - ✅ Encodage One-Hot terminé pour 'neighborhood', 'district' et 'property_use_list'.
+2025-02-24 15:27:37.332 | INFO     | __main__:preprocess_data:121 - ✅ Recodage catégoriel terminé pour 'year_built_cat' et 'floors_cat'.
+2025-02-24 15:27:37.333 | INFO     | __main__:preprocess_data:129 - ✅ Colonnes attendues par le scaler : ['site_eui', 'floors', 'building_density', 'electricity_ratio', 'gas_ratio', 'site_energy_use']
+2025-02-24 15:27:37.336 | ERROR    | __main__:<module>:180 - ❌ Erreur lors du prétraitement des données : "['electricity_use', 'natural_gas_use', 'total_gfa', 'year_built', 'ghg_emissions_total', 'f_has_natural_gas', 'f_is_large_building'] not in index"
+2025-02-24 15:27:49.398 | INFO     | __main__:<module>:26 - 🚀 Démarrage du script de préparation des données.
+2025-02-24 15:27:49.399 | INFO     | __main__:<module>:161 - 🔎 Chargement du fichier brut depuis F:\1.Boulot\03_Github\consommation_energie_batiments\data\raw\2016_Building_Energy_Benchmarking.csv.
+2025-02-24 15:27:49.416 | INFO     | __main__:<module>:168 - ✅ Données brutes chargées avec succès.
+2025-02-24 15:27:49.416 | INFO     | __main__:preprocess_data:45 - 🔧 Début du prétraitement des données.
+2025-02-24 15:27:49.418 | INFO     | __main__:preprocess_data:68 - ✅ Colonnes renommées : ['electricity_use', 'natural_gas_use', 'floors', 'total_gfa', 'property_type', 'year_built', 'site_eui', 'ghg_emissions_total', 'site_energy_use', 'neighborhood', 'district', 'property_use_list']
+2025-02-24 15:27:49.419 | INFO     | __main__:preprocess_data:73 - ✅ Colonnes conservées pour le traitement : ['electricity_use', 'natural_gas_use', 'floors', 'total_gfa', 'property_type', 'year_built', 'site_eui', 'ghg_emissions_total', 'site_energy_use', 'neighborhood', 'district', 'property_use_list']
+2025-02-24 15:27:49.423 | INFO     | __main__:preprocess_data:81 - ✅ Gestion des valeurs manquantes complétée.
+2025-02-24 15:27:49.425 | INFO     | __main__:preprocess_data:89 - ✅ Outliers filtrés sur 'site_eui' : 79 lignes supprimées.
+2025-02-24 15:27:49.426 | INFO     | __main__:preprocess_data:89 - ✅ Outliers filtrés sur 'site_energy_use' : 14 lignes supprimées.
+2025-02-24 15:27:49.427 | INFO     | __main__:preprocess_data:95 - ✅ Winsorisation des variables numériques terminée.
+2025-02-24 15:27:49.428 | INFO     | __main__:preprocess_data:99 - ✅ Variable dérivée 'building_density' créée.
+2025-02-24 15:27:49.429 | INFO     | __main__:preprocess_data:105 - ✅ Transformation logarithmique appliquée à 'site_eui'.
+2025-02-24 15:27:49.430 | INFO     | __main__:preprocess_data:105 - ✅ Transformation logarithmique appliquée à 'site_energy_use'.
+2025-02-24 15:27:49.431 | INFO     | __main__:preprocess_data:112 - ✅ Variables dérivées créées : f_has_natural_gas, electricity_ratio, gas_ratio, f_is_large_building.
+2025-02-24 15:27:49.434 | INFO     | __main__:preprocess_data:116 - ✅ Encodage One-Hot terminé pour 'neighborhood', 'district' et 'property_use_list'.
+2025-02-24 15:27:49.437 | INFO     | __main__:preprocess_data:121 - ✅ Recodage catégoriel terminé pour 'year_built_cat' et 'floors_cat'.
+2025-02-24 15:27:49.438 | INFO     | __main__:preprocess_data:129 - ✅ Colonnes attendues par le scaler : ['site_eui', 'floors', 'building_density', 'electricity_ratio', 'gas_ratio', 'site_energy_use']
+2025-02-24 15:27:49.440 | ERROR    | __main__:<module>:180 - ❌ Erreur lors du prétraitement des données : "['electricity_use', 'natural_gas_use', 'total_gfa', 'year_built', 'ghg_emissions_total', 'f_has_natural_gas', 'f_is_large_building'] not in index"

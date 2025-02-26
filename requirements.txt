@@ -1,9 +1,47 @@
-# requirements.txt - Dépendances essentielles pour l'API BentoML (compatible 1.4+)
+# ============================================================
+# requirements.txt - Dépendances essentielles pour l'API BentoML
+#     - Versions mises à jour pour compatibilité avec BentoML >=1.4.1
+#     - Commente chaque dépendance pour plus de clarté
+#     - Inclus pytest pour des tests robustes et automatisés
+#     - Supprimé les icônes pour éviter les erreurs d'encodage sous Windows
+# ============================================================
 
-scikit-learn==1.3.2
-lightgbm==4.1.0
-pandas==2.1.4
-numpy==1.26.3
-pydantic==1.10.9
-requests==2.31.0
-bentoml==1.3.22
+# Framework principal pour la gestion, le déploiement et le serving du modèle
+bentoml==1.4.1  # BentoML mis à jour pour supporter la dernière syntaxe des services
+
+# Librairie ML utilisée pour l'entraînement et la prédiction des modèles supervisés
+scikit-learn==1.3.2  # Stable et compatible avec LightGBM
+
+# Librairie pour le modèle LightGBM (optimisé pour les performances en ML)
+lightgbm==4.1.0  # Utilisé pour des prédictions rapides et performantes
+
+# Manipulation efficace des données tabulaires
+pandas==2.1.4  # Supporte la gestion des grands datasets et l'analyse exploratoire
+
+# Librairie pour le calcul numérique (utilisée dans le traitement de données et les modèles ML)
+numpy==1.26.3  # Accélère les opérations mathématiques vectorisées
+
+# Validation des données d'entrée envoyées à l'API (via Pydantic)
+pydantic==2.8.2  # Version compatible avec pydantic-settings et ydata-profiling
+
+# Gestion des requêtes HTTP pour tester et consommer l'API
+requests==2.31.0  # Permet d'interagir avec les endpoints RESTful
+
+# Gestion avancée des logs avec une meilleure lisibilité
+loguru==0.7.2  # Fournit des logs structurés et simples à configurer
+
+# Outil de tests robuste et flexible pour Python
+pytest==7.4.3  # Permet d'exécuter des tests unitaires et d'intégration de manière rapide et efficace
+
+# ============================================================
+# Instructions :
+# - Installer toutes les dépendances avec :
+#   ➔ pip install -r requirements.txt
+# - Si une erreur UnicodeDecodeError apparaît sous Windows :
+#   Ouvrez le fichier requirements.txt dans un éditeur de texte
+#   Sauvegardez-le explicitement en UTF-8 (sans BOM)
+#	Puis réessayez : pip install -r requirements.txt
+# - BentoML s'assurera que ces versions sont embarquées dans le Docker lors du build
+# - Lancer les tests avec :
+#   ➔ pytest tests/test_api.py  # Pour exécuter tous les tests de l'API
+# ============================================================

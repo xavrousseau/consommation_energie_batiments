@@ -1,20 +1,81 @@
-service: "src.service:svc"
-description: "API pour prédire la consommation d'énergie et les émissions de CO₂ des bâtiments."
+# ============================================================
+# 📦 bentofile.yaml - Configuration complète pour BentoML
+#     - Expose l'API via BentoML pour la prédiction en temps réel
+#     - Inclut les scripts, modèles et données nécessaires
+#     - Configuration Docker unifiée pour déploiement local et Cloud
+# ============================================================
 
-labels:
-  owner: "user"
-  project: "consommation_energie_batiments"
+service: "src.service:EnergyCO2PredictionService"  # 🌐 Endpoint principal exposé par BentoML (doit correspondre au nom exact de la classe de service)
 
-include:
-  - "src/service.py"
-  - "requirements.txt"
-  - "models/"
-  - "data/processed/dataset_cleaned.csv"
+description: "API pour la prédiction en temps réel de la consommation d'énergie et des émissions de CO₂ des bâtiments."
 
+labels:  # 🏷️ Informations pour suivi et gestion du projet
+  owner: "user"  # 👤 Propriétaire du projet
+  project: "consommation_energie_batiments"  # 📂 Nom du projet
+  stage: "production"  # 🚀 Statut actuel (production, développement, test, etc.)
+
+include:  # 📂 Fichiers nécessaires pour le bon fonctionnement de l'API
+  - "src/service.py"  # 🌐 Logique de l'API BentoML
+  - "src/config.py"   # ⚙️ Configuration centralisée des chemins et variables
+  - "src/preprocess_data_for_models.py"  # 🔄 Script de prétraitement des données
+  - "src/register_models_bentoml.py"     # 💾 Script d'enregistrement des modèles
+  - "tests/test_api.py"                 # 🧪 Script de test des endpoints API (placé dans un dossier tests)
+  - "models/"                            # 📦 Répertoire contenant les modèles
+  - "data/processed/dataset_processed_site_energy_use.csv"  # 🔋 Données pour le modèle énergie
+  - "data/processed/dataset_processed_ghg_emissions_total.csv"  # 🌿 Données pour le modèle CO₂
+
+python:  # 🐍 📦 Dépendances Python nécessaires (versions fixées pour cohérence)
+  requirements_txt: ./requirements.txt  # 📜 Utilisation du fichier requirements.txt
+
+# ============================================================
+# 🐳 Docker - Configuration unifiée et corrigée pour éviter les erreurs
+# ============================================================
 docker:
-  base_image: "python:3.9-slim"
-  setup_script: "pip install --no-cache-dir -r ./requirements.txt"
+  python_version: "3.9"  # 🐍 Version Python précisée pour éviter les conflits
+  base_image: "python:3.9-slim"  # 📦 Image légère Python 3.9
+  env:  # 🌍 Variables d'environnement pour la configuration dynamique
+    BENTO_SERVER_PORT: 3000
+    BENTO_SERVER_HOST: 0.0.0.0
+  system_packages:  # 🛠️ Paquets système essentiels
+    - git
+    - build-essential
+  setup_script: |  # ⚡ Installation rapide des dépendances
+    pip install --no-cache-dir -r ./requirements.txt
 
+# ============================================================
+# 🏗️ Spécification des modèles à inclure dans le package
+# ============================================================
 models:
-  - site_energy_use_model:latest
-  - ghg_emissions_model:latest
+  - site_energy_use_model:latest  # 🔋 Modèle pour prédiction de la consommation d'énergie
+  - ghg_emissions_model:latest    # 🌿 Modèle pour prédiction des émissions de CO₂
+
+# ============================================================
+# 🌎 Variables d’environnement pour la gestion dynamique des chemins
+# ============================================================
+envs:
+  - name: ENERGY_MODEL_PATH
+    value: "models/site_energy_use_model"
+  - name: CO2_MODEL_PATH
+    value: "models/ghg_emissions_model"
+  - name: PROCESSED_ENERGY_PATH
+    value: "data/processed/dataset_processed_site_energy_use.csv"
+  - name: PROCESSED_CO2_PATH
+    value: "data/processed/dataset_processed_ghg_emissions_total.csv"
+
+# ============================================================
+# 🎯 Instructions d'utilisation du bentofile.yaml
+# ============================================================
+# 1️⃣ Construction du Bento :
+#     ➔ `bentoml build`
+#
+# 2️⃣ Lancement local de l'API BentoML :
+#     ➔ `bentoml serve ./dist/energy_co2_prediction_service:latest`
+#
+# 3️⃣ Création de l'image Docker :
+#     ➔ `bentoml containerize energy_co2_prediction_service:latest`
+#
+# 4️⃣ Lancement de l'image Docker :
+#     ➔ `docker run -p 3000:3000 energy_co2_prediction_service:latest`
+#
+# 🌐 Swagger UI accessible via : http://127.0.0.1:3000
+# ============================================================
