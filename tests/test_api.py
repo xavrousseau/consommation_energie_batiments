@@ -5,7 +5,7 @@
 #     - Utilise pytest pour une exécution simplifiée et structurée
 #     - Logs détaillés et colorés avec loguru pour un suivi clair
 # ============================================================
-
+ 
 import sys
 from pathlib import Path
 import pandas as pd
@@ -16,38 +16,26 @@ import pytest
 import os
 
 # ============================================================
-# 📂 Configuration dynamique pour accéder au dossier src/
-# ------------------------------------------------------------
-# Cette section permet au script de trouver le module config.py
-# qui se trouve dans le dossier src/.
+# 📂 Configuration dynamique pour accéder à src/ depuis tests/
 # ============================================================
 BASE_DIR = Path(__file__).resolve().parent.parent  # 📍 Remonte à la racine du projet
 sys.path.append(str(BASE_DIR / "src"))  # 🔗 Ajoute src/ au chemin Python
 
-# 🔎 Debug temporaire pour valider les chemins
-print(f"📁 Chemin actuel : {os.getcwd()}")
-print(f"📁 Chemin attendu pour config.py : {BASE_DIR / 'src' / 'config.py'}")
-print(f"🧐 Fichier config.py existe ? {os.path.exists(BASE_DIR / 'src' / 'config.py')}")
+from src.config import PROCESSED_ENERGY_PATH, PROCESSED_CO2_PATH, ENERGY_SERVICE_PORT, CO2_SERVICE_PORT
 
-from config import PROCESSED_ENERGY_PATH, PROCESSED_CO2_PATH, ENERGY_MODEL_PATH, CO2_MODEL_PATH
-
-# ✅ Vérification de l'import du fichier config.py
-try:
-    print(f"✅ Chemin vers PROCESSED_ENERGY_PATH : {PROCESSED_ENERGY_PATH}")
-except ImportError as e:
-    print(f"❌ Erreur d'import : {e}")
+# ============================================================
+# 🌐 Configuration des endpoints API dynamiques
+# ============================================================
+energy_url = f"http://127.0.0.1:{ENERGY_SERVICE_PORT}/predict_energy"
+co2_url = f"http://127.0.0.1:{CO2_SERVICE_PORT}/predict_co2"
+headers = {"Content-Type": "application/json"}
 
 # ============================================================
 # 📂 Fixture pour charger les datasets traités
-# ------------------------------------------------------------
-# ⚡ Cette fonction charge une seule fois les datasets pour tous les tests
-# afin d'améliorer les performances (scope="session").
 # ============================================================
 @pytest.fixture(scope="session")
 def load_data():
     """📂 Charge les datasets traités une seule fois par session de test."""
-    print(f"🔍 Tentative de chargement : {PROCESSED_ENERGY_PATH}")
-    print(f"🔍 Tentative de chargement : {PROCESSED_CO2_PATH}")
     try:
         data_energy = pd.read_csv(PROCESSED_ENERGY_PATH)
         data_co2 = pd.read_csv(PROCESSED_CO2_PATH)
@@ -57,20 +45,15 @@ def load_data():
         logger.error(f"❌ Fichier introuvable : {e}")
         pytest.exit("❌ Arrêt des tests : données manquantes.", returncode=1)
 
-
 # ============================================================
 # 🔗 Fixture pour charger les modèles et récupérer les features
-# ------------------------------------------------------------
-# ⚡ Charge une seule fois les modèles depuis BentoML pour tous les tests.
-# Retourne la liste des features nécessaires à chaque modèle.
 # ============================================================
 @pytest.fixture(scope="session")
 def load_models():
     """🔗 Charge les modèles BentoML et récupère les features attendues."""
     try:
-        logger.info("🔄 Chargement des modèles BentoML...")
-        model_energy_ref = bentoml.sklearn.load_model(ENERGY_MODEL_PATH)
-        model_co2_ref = bentoml.sklearn.load_model(CO2_MODEL_PATH)
+        model_energy_ref = bentoml.sklearn.get("site_energy_use_model:latest")
+        model_co2_ref = bentoml.sklearn.get("ghg_emissions_model:latest")
 
         features_energy = model_energy_ref.custom_objects["features"]
         features_co2 = model_co2_ref.custom_objects["features"]
@@ -84,18 +67,7 @@ def load_models():
         pytest.exit("❌ Arrêt des tests : modèles manquants.", returncode=1)
 
 # ============================================================
-# 🌐 Configuration des endpoints API
-# ------------------------------------------------------------
-# Définition des endpoints de prédiction (énergie et CO₂).
-# ============================================================
-energy_url = "http://127.0.0.1:3000/predict_energy"
-co2_url = "http://127.0.0.1:3000/predict_co2"
-headers = {"Content-Type": "application/json"}
-
-# ============================================================
-# 🚀 Fonction utilitaire renommée pour éviter les conflits avec pytest
-# ------------------------------------------------------------
-# 💡 Cette fonction envoie une requête POST et vérifie la réponse.
+# 🚀 Fonction utilitaire pour tester les endpoints
 # ============================================================
 def run_endpoint_test(url, payload, label):
     """🚀 Exécute un test sur un endpoint donné et log les résultats."""
@@ -111,9 +83,6 @@ def run_endpoint_test(url, payload, label):
 
 # ============================================================
 # 🎯 Tests parametrés avec pytest sur plusieurs échantillons
-# ------------------------------------------------------------
-# 🏃 Chaque test est exécuté sur les 3 premières lignes du dataset.
-# Le nom a été ajusté pour respecter les conventions pytest.
 # ============================================================
 @pytest.mark.parametrize("index", [0, 1, 2])
 def test_energy_prediction(load_data, load_models, index):
@@ -138,8 +107,5 @@ def test_co2_prediction(load_data, load_models, index):
 # ============================================================
 # 🎉 Instructions pour exécuter les tests :
 #     ➔ pytest tests/test_api.py
-#     ➔ pytest --maxfail=1 --disable-warnings -v
-# ------------------------------------------------------------
-# 📝 Ce script s'assure que l'API retourne les prédictions attendues
-#     et que les endpoints sont accessibles et fonctionnels.
 # ============================================================
+logger.info("🧪 ✅ Tous les tests ont été configurés avec succès.")

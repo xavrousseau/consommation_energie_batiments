@@ -1,0 +1,59 @@
+[tool.poetry]
+name = "consommation_energie_batiments"
+packages = [{ include = "src" }]  # Ajout pour spécifier le dossier contenant le code
+version = "0.1.0"
+description = "API pour la prédiction de la consommation d'énergie et des émissions de CO₂ des bâtiments."
+authors = ["Votre Nom <votre.email@example.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+bentoml = {extras = ["sklearn"], version = "1.0.21"}
+scikit-learn = "1.2.2"
+lightgbm = "3.3.5"
+pandas = "1.5.3"
+numpy = "1.24.4"
+pydantic = "2.8.2"
+aiohttp = "3.9.1"
+requests = "2.31.0"
+loguru = "0.7.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "7.4.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0", "setuptools>=65.5.0", "wheel>=0.40.0"]
+build-backend = "poetry.core.masonry.api"
+
+# ============================================================
+# Instructions mises à jour :
+# ------------------------------------------------------------
+# 1. Configurer Poetry pour créer l'environnement dans le dossier local :
+#    poetry config virtualenvs.in-project true
+#
+# 2. Nettoyer l'environnement existant :
+#    poetry env remove python
+#
+# 3. Forcer l'utilisation de Python 3.11 :
+#    poetry env use python3.11
+#
+# 4. Installer les dépendances avec un environnement local :
+#    poetry install --with dev
+#
+# 5. L'environnement sera créé dans :
+#    F:\\1.Boulot\\03_Github\\consommation_energie_batiments\\.venv
+#
+# 6. Activer l'environnement :
+#    poetry shell
+#
+# 7. Vérifier numpy :
+#    python -c "import numpy; print(numpy.__version__)"
+#
+# 8. Lancer l'API localement :
+#    bentoml serve src.service:energy_prediction_service --reload
+#    bentoml serve src.service:co2_prediction_service    --reload
+#
+# 9. Exécuter les tests :
+#    pytest tests/test_api.py
+# ============================================================

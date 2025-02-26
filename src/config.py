@@ -1,12 +1,12 @@
 # ============================================================
-# ⚙️ Configuration centralisée pour le projet BentoML
+# ⚙️ Configuration centralisée pour le projet BentoML (corrigé)
 # ============================================================
 
 from pathlib import Path
 import os
 
 # 📦 Répertoire de base du projet (racine)
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent  # ✅ Correction : BASE_DIR pointe vers la racine du projet
 
 # ============================================================
 # 📂 Chemins des données
@@ -34,6 +34,10 @@ RANDOM_STATE = int(os.getenv("RANDOM_STATE", 42))
 BENTOML_SERVICE_NAME_ENERGY = os.getenv("BENTOML_SERVICE_NAME_ENERGY", "energy_prediction_service")
 BENTOML_SERVICE_NAME_CO2 = os.getenv("BENTOML_SERVICE_NAME_CO2", "co2_prediction_service")
 
+# Ports confirmés pour cohérence avec service.py
+ENERGY_SERVICE_PORT = 3000  # ✅ Confirmé
+CO2_SERVICE_PORT = 3001     # ✅ Confirmé
+
 # ============================================================
 # 🌐 Configuration des logs
 # ============================================================
@@ -44,9 +48,11 @@ LOG_FILE = LOGS_DIR / "project.log"
 # ============================================================
 # 📝 Informations complémentaires
 # ============================================================
-# - Tous les chemins sont relatifs pour garantir la portabilité (ex: Docker, GCP)
-# - Les variables peuvent être surchargées via des variables d'environnement
-# - Gestion des logs centralisée pour un suivi facile
-# - Ce fichier doit être importé dans tous les scripts du projet
-# - ⚡ Service énergie : http://127.0.0.1:3000
-# - 🌿 Service CO₂    : http://127.0.0.1:3001
+# - BASE_DIR pointe désormais vers la racine du projet pour cohérence avec bentofile.yaml
+# - Tous les chemins relatifs simplifiés sans ".."
+# - Variables d'environnement toujours surchargeables
+# - Logs centralisés dans logs/project.log
+# - Ports synchronisés avec service.py :
+#   ⚡ Service énergie : http://127.0.0.1:3000
+#   🌿 Service CO₂    : http://127.0.0.1:3001
+# ============================================================
